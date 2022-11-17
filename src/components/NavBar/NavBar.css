@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.logo{
+    height: 25vh;
+    width: 20%;
+}
+.NavBar{
+    background-color: rgb(49, 47, 47);
+    display: flex;
+}
+.ul_NavBar{
+    list-style-type: none;
+    color: aliceblue;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 7%;
+    width: 100%;
+    font-size: large;
+}
+/* 
+.active{
+    color: rgb(172, 37, 199);
+}
+.inactive{
+    color:aliceblue;
+} */
