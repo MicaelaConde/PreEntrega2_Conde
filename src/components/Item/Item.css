@@ -1,0 +1,20 @@
+.itemsContainer{
+    margin-left: 3%;
+    margin-top: 3%;
+   border:solid rgb(192, 189, 189) 1px;
+   width: 50vh;
+   height: 50vh;
+    background-color: rgba(110, 107, 107, 0.527);
+}
+
+.itemsContainer img{
+    margin-top: 6%;
+    width: 90%;
+    height: 60%;
+    margin-left: 5%;
+}
+
+.itemsContainer h2{
+    font-size: large;
+    margin-left: 5%;
+}

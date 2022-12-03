@@ -1,36 +1,57 @@
 import {useState, useEffect} from 'react';
-import {data} from '../../data/data';
+import './ItemListContainer.css'
+// import {data} from '../../data/data';
 import ItemList from '../../components/ItemList/ItemList';
 import { useParams } from 'react-router-dom';
+import {getFirestore, collection, getDocs, query,where, QuerySnapshot} from 'firebase/firestore'
 
 const ItemListContainer = () => {
-  const [items, setItems] = useState([]);
+  const [habitaciones, setItems] = useState([]);
   const {filtrado} = useParams();
 
-  const getProducts = new Promise((resp, rej) => {
+ const getProducts = () =>{
+  const db= getFirestore();
+  const QuerySnapshot= collection(db,"habitaciones");
+ 
+  if (filtrado){
+    const queryFilter= query(QuerySnapshot, where("categoria", "==", filtrado));
+    getDocs(queryFilter)
+  .then((response) =>{
+    
+    const data = response .doc.map((habitaciones) => {
+      // console.log(habitaciones.data());
+      return {id: habitaciones.id, ...habitaciones.data()}
+ 
+    });
+    setItems(data)
+    console.log(data);
+  })
+  .catch((error)=>{console.log(error)})
+ }
+
+ else{
+  getDocs(QuerySnapshot)
+  .then((response) =>{
+    const data = response .docs.map((habitaciones) => {
+      // console.log(habitaciones.data());
+      return {id: habitaciones.id, ...habitaciones.data()}
+
+    });
+    setItems(data)
+    console.log(data);
+  })
+  .catch((error)=>{console.log(error)})
+ }
+ }
   
-    setTimeout(() =>{
-      if(filtrado){
-        const filtrarHabitacion = data.filter((item) =>{
-          return item.category === filtrado;
-        });
+ 
+  
+useEffect(()=>{
+  getProducts();
+},[filtrado]);
 
-      
-      resp(filtrarHabitacion);
-    }else {
-      resp(data);
-    }
-    }, 2000);
-  });
+  return  <div className='body'>{<ItemList products={habitaciones} />  } </div>
 
-  useEffect(() =>{
-    getProducts.then((respuesta)=> setItems(respuesta));
-  },[filtrado]);
-  return (
-    <div>
-    <ItemList products={items} />
-    </div>
-  )
-}
+ }
 
 export default ItemListContainer;

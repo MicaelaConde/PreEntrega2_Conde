@@ -16,13 +16,12 @@
     display: flex;
     justify-content: space-around;
     margin-top: 7%;
-    width: 100%;
+    margin-right: 10%;
+    width: 90%;
     font-size: large;
 }
-/* 
-.active{
-    color: rgb(172, 37, 199);
+
+.carrito{
+    margin-top: 5%;
+    margin-right: 3%;
 }
-.inactive{
-    color:aliceblue;
-} */

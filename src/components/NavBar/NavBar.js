@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import './NavBar.css';
-import logo from '../../images/logo.png';
+import logo from '../../assets/logo/logo.png';
+import carrito from '../../assets/logo/carrito.png'
 const NavBar = () => {
   return (
    <div>
@@ -13,18 +14,21 @@ const NavBar = () => {
     </NavLink>
     </li>
     <li>
-    <NavLink to="/filtrar/Single">
-    Single
+    <NavLink to="/filtrar/Habitaciones">
+    Habitaciones
     </NavLink></li>
     <li>
-    <NavLink to="/filtrar/Couple">
-    Couple
+    <NavLink to="/filtrar/Productos">
+   Productos
     </NavLink></li>
     </ul>
+    <div className="carrito">
+    <Link to="/cart">
+    <img src={carrito} />
+    </Link>
     </div>
-    <div>
-    <Link to="/cart">Carrito</Link>
     </div>
+    
     </div>
   )
 }
