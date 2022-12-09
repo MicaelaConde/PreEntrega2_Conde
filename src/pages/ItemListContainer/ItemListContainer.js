@@ -3,7 +3,7 @@ import './ItemListContainer.css'
 // import {data} from '../../data/data';
 import ItemList from '../../components/ItemList/ItemList';
 import { useParams } from 'react-router-dom';
-import {getFirestore, collection, getDocs, query,where, QuerySnapshot} from 'firebase/firestore'
+import {getFirestore, collection, getDocs, query,where} from 'firebase/firestore'
 
 const ItemListContainer = () => {
   const [habitaciones, setItems] = useState([]);
@@ -11,15 +11,14 @@ const ItemListContainer = () => {
 
  const getProducts = () =>{
   const db= getFirestore();
-  const QuerySnapshot= collection(db,"habitaciones");
+  const querySnapshot= collection(db,'habitaciones');
  
   if (filtrado){
-    const queryFilter= query(QuerySnapshot, where("categoria", "==", filtrado));
+    const queryFilter= query(querySnapshot, where("categoria", "==", filtrado));
     getDocs(queryFilter)
   .then((response) =>{
     
-    const data = response .doc.map((habitaciones) => {
-      // console.log(habitaciones.data());
+    const data = response .docs.map((habitaciones) => {
       return {id: habitaciones.id, ...habitaciones.data()}
  
     });
@@ -30,10 +29,9 @@ const ItemListContainer = () => {
  }
 
  else{
-  getDocs(QuerySnapshot)
+  getDocs(querySnapshot)
   .then((response) =>{
     const data = response .docs.map((habitaciones) => {
-      // console.log(habitaciones.data());
       return {id: habitaciones.id, ...habitaciones.data()}
 
     });
@@ -50,7 +48,7 @@ useEffect(()=>{
   getProducts();
 },[filtrado]);
 
-  return  <div className='body'>{<ItemList products={habitaciones} />  } </div>
+  return  <div className='body'>{<ItemList products={habitaciones} />} </div>
 
  }
 

@@ -1,0 +1,46 @@
+.items_carrito{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(145, 114, 180);
+}
+
+.detalle_carrito{
+    display: flex;
+    margin-left: 10%;
+    width: 80%;
+    height: 50vh;
+    gap: 3%;
+    border: solid 5px rgb(105, 16, 179);
+  
+}
+
+.detalle_carrito img{
+    margin-top: 2%;
+    margin-left: 5%;
+    width: 70vh;
+    height: 95%;
+}
+
+.descripcion{
+    width: 40%;
+    margin-top: 3%;
+}
+
+.descripcion h2{
+    margin-top: 5%;
+    font-size: larger;
+}
+
+.carrito_btn{
+ margin-right: 10%;
+    margin-top: 60%;
+}
+
+.btn_agregarAlCarrito{
+   background-color: rgb(168, 163, 197);
+    margin-top: 55%;
+    width: 10vw;
+    height: 8vh;
+    font-size: large;
+}

@@ -1,25 +1,37 @@
 import { useState, useContext } from "react";
-import {cartContext} from "../../context/CartProvider";
+import {CartContext} from "../../context/CartProvider";
 import ItemCount from '../ItemCount/ItemCount';
+import './ItemDetail.css'
 
 const ItemDetail = ({productSelected}) => {
-  const [count, setCount] = useState(1);
-  const {cart, addToCart} = useContext(cartContext);
-  console.log(cart);
+ const [count, setCount] = useState(1);
+  const {cart, addToCart} = useContext(CartContext);
+
   return (
-    <div>
-    <h1>Esta es la cantidad del carrito {cart.length}</h1>
-    <img alt={productSelected.descripcion}
+    <div className="items_carrito">
+    
+    <div className="detalle_carrito">
+    <div>    <img alt={productSelected.descripcion}
     src={`/images/${productSelected.img}`}
     />
-    <h2>{productSelected.id}</h2>
-    <h2>{productSelected.descripcion}</h2>
-    <h2>{productSelected.precio}</h2>
-    <h2>{count}</h2>
-    <ItemCount setCount={setCount} />
-    <button onClick={() => addToCart(productSelected, count)}>Agregar al carrito</button>
     </div>
-   
+    <div className="descripcion">
+    <h2>Descripcion del producto:</h2>
+    <h2>{productSelected.descripcion}</h2>
+    <h2>Precio: ${productSelected.precio}</h2>
+    </div>
+    <div>
+
+    
+    <div className="carrito_btn">
+    <h2>Cantidad: {count}</h2>
+    <ItemCount setCount={setCount} />
+    <button className="btn_agregarAlCarrito" onClick={() => addToCart(productSelected, count)}>Agregar al carrito</button>
+    </div>
+    </div>
+    </div>
+    </div>
+
   )
 }
 

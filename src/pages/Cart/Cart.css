@@ -1,0 +1,49 @@
+.cart_items{
+    display: flex;
+    margin-left: 10%;
+    padding: 1%;
+    margin-top: 2%;
+    width: 80%;
+    height: 15vw;
+    border: solid black 1px;
+    background-color: rgb(145, 114, 180);
+}
+
+.titulo{
+    margin-top: 2%;
+   text-align: center;
+   border: solid black 1px;
+   background-color: rgb(170, 110, 226);
+}
+
+.cart_items img{
+    width: 40%;
+    height: 95%;
+}
+
+.cart_items h2{
+    display: block;
+    font-size: large;
+    text-align: justify;
+
+}
+
+
+.descripcion{
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+.form{
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+}
+.form button{
+    width: 10vw;
+    font-size: large;
+    background-color: rgb(184, 164, 202);
+}
