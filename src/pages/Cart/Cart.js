@@ -1,5 +1,5 @@
 import {useContext, useState, useEffect } from "react";
-import { CartContext } from "../../context/CartProvider";
+import { CartContext } from "../../context/CartContext";
 import { collection, addDoc, getFirestore, doc, updateDoc} from "firebase/firestore";
 import moment from "moment/moment";
 import './Cart.css';
@@ -60,6 +60,7 @@ const handleInputCgange = (event) => {
 
   return (
     <div>
+    
     <h2 className="titulo">Tu carrito tiene {cart.length} productos</h2>
     <div  className="cart_form">
     {cart.map((product) => (
@@ -97,5 +98,6 @@ const handleInputCgange = (event) => {
     </div>
   )
 }
+
 
 export default Cart

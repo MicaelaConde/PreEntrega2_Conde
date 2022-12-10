@@ -1,12 +1,12 @@
 import React from "react";
-import CartContext  from "../../context/CartProvider";
-
+import carrito from '../../assets/logo/carrito.png'
 export const CartWidget = () => {
-    const {totalProducts} = CartContext();
+   
     return (
         <div>
-          
-            <p>ddhh</p>
+       
+        <img alt="Icono carrito" src={carrito}/>
+           
         </div>
     );
 }

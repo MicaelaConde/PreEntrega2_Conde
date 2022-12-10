@@ -1,11 +1,11 @@
 import { useState, useContext } from "react";
-import {CartContext} from "../../context/CartProvider";
+import {CartContext} from "../../context/CartContext";
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css'
 
 const ItemDetail = ({productSelected}) => {
  const [count, setCount] = useState(1);
-  const {cart, addToCart} = useContext(CartContext);
+  const { addToCart} = useContext(CartContext);
 
   return (
     <div className="items_carrito">
